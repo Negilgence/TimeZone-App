@@ -36,7 +36,7 @@ const TimeZoneCoordinator = () => {
   };
 
   const findOptimalTime = () => {
-    if (!meetingTitle  !preferredTime  participants.some(p => !p.name)) {
+    if (!meetingTitle || !preferredTime || participants.some(p => !p.name)) {
       alert('Please fill in all required fields!');
       return;
     }
@@ -120,7 +120,7 @@ const TimeZoneCoordinator = () => {
     });
   };
 
-const resetForm = () => {
+  const resetForm = () => {
     setMeetingTitle('');
     setDuration(60);
     setMeetingLink('');
@@ -198,7 +198,7 @@ const resetForm = () => {
           <p className="text-xl text-slate-600">Everything you need for peaceful meeting coordination</p>
         </div>
 
-<div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-white/50">
             <div className="bg-blue-100 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
               <Clock className="h-6 w-6 text-blue-600" />
@@ -267,7 +267,7 @@ const resetForm = () => {
         </div>
       </div>
 
-<div className="relative z-10 max-w-6xl mx-auto px-4 py-8">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 py-8">
         {!showResults ? (
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/50 p-8">
             <div className="space-y-6">
@@ -321,7 +321,7 @@ const resetForm = () => {
                 </div>
               </div>
 
-<div>
+              <div>
                 <div className="flex items-center justify-between mb-4">
                   <label className="block text-sm font-semibold text-slate-700">Participants *</label>
                   <button
@@ -392,7 +392,7 @@ const resetForm = () => {
                   </button>
                 </div>
 
-<div className="space-y-4">
+                <div className="space-y-4">
                   {meeting.suggestedTimes.map((timeSlot, index) => (
                     <div key={index} className={`p-6 rounded-lg border-2 ${
                       timeSlot.isOptimal ? 'border-green-300 bg-green-50/70' : 'border-slate-300 bg-slate-50/70'
